@@ -4,29 +4,47 @@ Inicializace hardware.
 
 from machine import Pin
 
-from postreh.config import LED_MAIN_PIN, LED_MAIN_COUNT, LED_NUMBERS_PIN, LED_NUMBERS_COUNT, LED_MAIN_BRIGHTNESS, LED_NUMBERS_BRIGHTNESS, BUTTON_CONFIG, PLAYER1_PIN, PLAYER2_PIN, PLAYER3_PIN, PLAYER4_PIN, PROBE_ENABLED, PROBE_PIN
+from postreh.config import (
+    LED_MAIN_GPIO,
+    LED_MAIN_COUNT,
+    LED_NUMBERS_GPIO,
+    LED_NUMBERS_COUNT,
+    LED_MAIN_BRIGHTNESS,
+    LED_NUMBERS_BRIGHTNESS,
+    BUTTON_CONFIG,
+    PLAYER1_GPIO,
+    PLAYER2_GPIO,
+    PLAYER3_GPIO,
+    PLAYER4_GPIO,
+    PROBE_ENABLED,
+    PROBE_GPIO,
+)
 from postreh.neopixels import NeopixelStrip
 
 
 # tlacitka hracu
-BUTTON1 = Pin(PLAYER1_PIN, Pin.IN, Pin.PULL_DOWN)
-BUTTON2 = Pin(PLAYER2_PIN, Pin.IN, Pin.PULL_DOWN)
-BUTTON3 = Pin(PLAYER3_PIN, Pin.IN, Pin.PULL_DOWN)
-BUTTON4 = Pin(PLAYER4_PIN, Pin.IN, Pin.PULL_DOWN)
+BUTTON1 = Pin(PLAYER1_GPIO, Pin.IN, Pin.PULL_DOWN)
+BUTTON2 = Pin(PLAYER2_GPIO, Pin.IN, Pin.PULL_DOWN)
+BUTTON3 = Pin(PLAYER3_GPIO, Pin.IN, Pin.PULL_DOWN)
+BUTTON4 = Pin(PLAYER4_GPIO, Pin.IN, Pin.PULL_DOWN)
 
 # Neopixel prouzky
 
 # hlavni svetlo uprostred stolu
-LED_MAIN = NeopixelStrip(LED_MAIN_PIN, LED_MAIN_COUNT, 0, brightness=LED_MAIN_BRIGHTNESS)
+LED_MAIN = NeopixelStrip(
+    LED_MAIN_GPIO, LED_MAIN_COUNT, 0, brightness=LED_MAIN_BRIGHTNESS
+)
 # cisla se skorem u hracu
-LED_NUMBERS = NeopixelStrip(LED_NUMBERS_PIN, LED_NUMBERS_COUNT, 1, brightness=LED_NUMBERS_BRIGHTNESS)
+LED_NUMBERS = NeopixelStrip(
+    LED_NUMBERS_GPIO, LED_NUMBERS_COUNT, 1, brightness=LED_NUMBERS_BRIGHTNESS
+)
 
 # probe
 # vystupni pin, na kterem se generuje signal z hlavni smycky hry
 # pri kazde zmene ticku se invertuje
 # slouzi pro zmereni realne doby ticku na osciloskopu
 if PROBE_ENABLED:
-    PROBE = Pin(PROBE_PIN, Pin.OUT)
+    PROBE = Pin(PROBE_GPIO, Pin.OUT)
 else:
     PROBE = None
 
@@ -37,7 +55,7 @@ def get_player_button():
 
     S pomoci konfiguracniho slovniku BUTTON_CONFIG je mozne ovlivnit,
     co se povazuje za stisknuti tlacitka:
-    
+
     * hodnota 1 je pro klasicke tlacitka, kdy je po stisku tlacitka na pin
       pripojena logicka 1
     * hodnota 0 je pro pripady, kdy je pouzito rozpojovaci tlacitko; tj. na pinu

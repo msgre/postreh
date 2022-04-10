@@ -8,13 +8,18 @@ import rp2
 from machine import Pin
 
 
-@rp2.asm_pio(sideset_init=rp2.PIO.OUT_LOW, out_shiftdir=rp2.PIO.SHIFT_LEFT, autopull=True, pull_thresh=24)
+@rp2.asm_pio(
+    sideset_init=rp2.PIO.OUT_LOW,
+    out_shiftdir=rp2.PIO.SHIFT_LEFT,
+    autopull=True,
+    pull_thresh=24,
+)
 def ws2812():
     """
     PIO rutina pro ovladani Neopixelu (WS2812).
     Copy/paste z https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-python-sdk.pdf,
     kapitola 3.9.2
-    
+
     Poznamka: jedna PIO rutina muze byt pouzita ve vice StateMachines
     (napr. pro ovladani vice prouzku v jednom projektu).
     """
@@ -23,11 +28,11 @@ def ws2812():
     T3 = 3
     wrap_target()
     label("bitloop")
-    out(x, 1)               .side(0)    [T3 - 1]
-    jmp(not_x, "do_zero")   .side(1)    [T1 - 1]
-    jmp("bitloop")          .side(1)    [T2 - 1]
+    out(x, 1).side(0)[T3 - 1]
+    jmp(not_x, "do_zero").side(1)[T1 - 1]
+    jmp("bitloop").side(1)[T2 - 1]
     label("do_zero")
-    nop()                   .side(0)    [T2 - 1]
+    nop().side(0)[T2 - 1]
     wrap()
 
 
@@ -37,15 +42,15 @@ class NeopixelStrip:
 
     Index LED diod se pocita od 0, barvy se zadavaji v RGB prostoru
     jako tuple (R, G, B).
-    
+
     Pouziti:
         # prouzek 20ti diod ovladany pres GPIO5, stavova masina ID=0
         LED_NUMBERS = NeopixelStrip(5, 20, 0)
-        
+
         # zhasni vsecky diody
         LED_NUMBERS.fill((0, 0, 0))
 
-        # jedenactou diodu rozsvit cervene 
+        # jedenactou diodu rozsvit cervene
         LED_NUMBERS.set(10, (255, 0, 0))
 
         # teprem ted se to ukaze
@@ -68,7 +73,9 @@ class NeopixelStrip:
         """
         self.count = count
         self.brightness = brightness
-        self.sm = rp2.StateMachine(sm_id, ws2812, freq=8_000_000, sideset_base=Pin(gpio))
+        self.sm = rp2.StateMachine(
+            sm_id, ws2812, freq=8_000_000, sideset_base=Pin(gpio)
+        )
         self.sm.active(1)
         self.array = array.array("I", [0 for _ in range(count)])
 
@@ -105,11 +112,17 @@ class NeopixelStrip:
             r = int(((c >> 8) & 0xFF) * self.brightness)
             g = int(((c >> 16) & 0xFF) * self.brightness)
             b = int((c & 0xFF) * self.brightness)
-            dimmer_ar[i] = (g<<16) + (r<<8) + b
+            dimmer_ar[i] = (g << 16) + (r << 8) + b
         self.sm.put(dimmer_ar, 8)
-        
+
     def set_brightness(self, value):
         """
         Aktualizuje hodnotu jasu prouzku.
         """
         self.brightness = value
+
+    def get_brightness(self):
+        """
+        Vrati aktualni hodnotu jasu prouzku.
+        """
+        return self.brightness

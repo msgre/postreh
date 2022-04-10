@@ -9,9 +9,9 @@ from postreh.hw import PROBE
 class Game:
     def __init__(self):
         self.tick = 0
-        self.context = {'quick_wakeup': False}
+        self.context = {"quick_wakeup": False, "first_round": True}
         self.state = INTRO
-        print('Game: Hra byla inicializovana')
+        print("Game: Hra byla inicializovana")
 
     def process(self):
         fn = self.get_state_fn()

@@ -1,72 +1,178 @@
-PALLETTE = [(255, 0, 0), (255, 6, 0), (255, 12, 0), (255, 18, 0), (255, 24, 0), (255, 30, 0), (255, 36, 0), (255, 42, 0),
-            (255, 48, 0), (255, 54, 0), (255, 60, 0), (255, 66, 0), (255, 72, 0), (255, 78, 0), (255, 84, 0), (255, 90, 0),
-            (255, 96, 0), (255, 102, 0), (255, 108, 0), (255, 114, 0), (255, 120, 0), (255, 126, 0), (255, 131, 0), (255, 137, 0),
-            (255, 143, 0), (255, 149, 0), (255, 155, 0), (255, 161, 0), (255, 167, 0), (255, 173, 0), (255, 179, 0), (255, 185, 0),
-            (255, 191, 0), (255, 197, 0), (255, 203, 0), (255, 209, 0), (255, 215, 0), (255, 221, 0), (255, 227, 0), (255, 233, 0),
-            (255, 239, 0), (255, 245, 0), (255, 251, 0), (253, 255, 0), (247, 255, 0), (241, 255, 0), (235, 255, 0), (229, 255, 0),
-            (223, 255, 0), (217, 255, 0), (211, 255, 0), (205, 255, 0), (199, 255, 0), (193, 255, 0), (187, 255, 0), (181, 255, 0),
-            (175, 255, 0), (169, 255, 0), (163, 255, 0), (157, 255, 0), (151, 255, 0), (145, 255, 0), (139, 255, 0), (133, 255, 0),
-            (127, 255, 0), (122, 255, 0), (116, 255, 0), (110, 255, 0), (104, 255, 0), (98, 255, 0), (92, 255, 0), (86, 255, 0),
-            (80, 255, 0), (74, 255, 0), (68, 255, 0), (62, 255, 0), (56, 255, 0), (50, 255, 0), (44, 255, 0), (38, 255, 0), (32, 255, 0),
-            (26, 255, 0), (20, 255, 0), (14, 255, 0), (8, 255, 0), (2, 255, 0), (0, 255, 4), (0, 255, 10), (0, 255, 16), (0, 255, 22),
-            (0, 255, 28), (0, 255, 34), (0, 255, 40), (0, 255, 46), (0, 255, 52), (0, 255, 58), (0, 255, 64), (0, 255, 70), (0, 255, 76),
-            (0, 255, 82), (0, 255, 88), (0, 255, 94), (0, 255, 100), (0, 255, 106), (0, 255, 112), (0, 255, 118), (0, 255, 124),
-            (0, 255, 129), (0, 255, 135), (0, 255, 141), (0, 255, 147), (0, 255, 153), (0, 255, 159), (0, 255, 165), (0, 255, 171),
-            (0, 255, 177), (0, 255, 183), (0, 255, 189), (0, 255, 195), (0, 255, 201), (0, 255, 207), (0, 255, 213), (0, 255, 219),
-            (0, 255, 225), (0, 255, 231), (0, 255, 237), (0, 255, 243), (0, 255, 249), (0, 255, 255), (0, 249, 255), (0, 243, 255),
-            (0, 237, 255), (0, 231, 255), (0, 225, 255), (0, 219, 255), (0, 213, 255), (0, 207, 255), (0, 201, 255), (0, 195, 255),
-            (0, 189, 255), (0, 183, 255), (0, 177, 255), (0, 171, 255), (0, 165, 255), (0, 159, 255), (0, 153, 255), (0, 147, 255),
-            (0, 141, 255), (0, 135, 255), (0, 130, 255), (0, 124, 255), (0, 118, 255), (0, 112, 255), (0, 106, 255), (0, 100, 255),
-            (0, 94, 255), (0, 88, 255), (0, 82, 255), (0, 76, 255), (0, 70, 255), (0, 64, 255), (0, 58, 255), (0, 52, 255), (0, 46, 255),
-            (0, 40, 255), (0, 34, 255), (0, 28, 255), (0, 22, 255), (0, 16, 255), (0, 10, 255), (0, 4, 255), (2, 0, 255), (8, 0, 255),
-            (14, 0, 255), (20, 0, 255), (26, 0, 255), (32, 0, 255), (38, 0, 255), (44, 0, 255), (50, 0, 255), (56, 0, 255), (62, 0, 255),
-            (68, 0, 255), (74, 0, 255), (80, 0, 255), (86, 0, 255), (92, 0, 255), (98, 0, 255), (104, 0, 255), (110, 0, 255), (116, 0, 255),
-            (122, 0, 255), (127, 0, 255), (133, 0, 255), (139, 0, 255), (145, 0, 255), (151, 0, 255), (157, 0, 255), (163, 0, 255),
-            (169, 0, 255), (175, 0, 255), (181, 0, 255), (187, 0, 255), (193, 0, 255), (199, 0, 255), (205, 0, 255), (211, 0, 255),
-            (217, 0, 255), (223, 0, 255), (229, 0, 255), (235, 0, 255), (241, 0, 255), (247, 0, 255), (253, 0, 255), (255, 0, 251),
-            (255, 0, 245), (255, 0, 239), (255, 0, 233), (255, 0, 227), (255, 0, 221), (255, 0, 215), (255, 0, 209), (255, 0, 203),
-            (255, 0, 197), (255, 0, 191), (255, 0, 185), (255, 0, 179), (255, 0, 173), (255, 0, 167), (255, 0, 161), (255, 0, 155),
-            (255, 0, 149), (255, 0, 143), (255, 0, 137), (255, 0, 132), (255, 0, 126), (255, 0, 120), (255, 0, 114), (255, 0, 108),
-            (255, 0, 102), (255, 0, 96), (255, 0, 90), (255, 0, 84), (255, 0, 78), (255, 0, 72), (255, 0, 66), (255, 0, 60), (255, 0, 54),
-            (255, 0, 48), (255, 0, 42), (255, 0, 36), (255, 0, 30), (255, 0, 24), (255, 0, 18), (255, 0, 12), (255, 0, 6)]
-PATTERN = [128, 197, 208, 152, 78, 46, 83, 194, 233, 233, 175, 104, 77, 116, 209, 237, 225, 170, 111, 96, 139, 164, 190, 180, 139,
-           99, 98, 142, 96, 126, 128, 106, 85, 92, 129, 58, 92, 106, 98, 85, 87, 107, 74, 110, 129, 122, 101, 87, 87, 126, 161, 175, 158, 121, 88, 73]
+"""
+Efekt plasmy pro hlavni svetlo.
+
+Lampa uprostred stolu se rozzari vsema barvama, ktere se organicky
+prelivaji jedna pres druhou.
+
+Vykradeny plasma efekt znamy z demoscen: https://lodev.org/cgtutor/plasma.html
+"""
 
 import math
-from postreh.colors import rgb_to_hsv, hsv_to_rgb, BLACK
-
-# TODO: tohle pak vyresim importem s detekci DEBUG 
-# - tj. nebudu tim konfigurovat tridu Firefly
-def display_led_debug(idx, color):
-    print('LED %s set to %s' % (idx, color))
+from postreh.colors import hsv_to_rgb
+from postreh.config import LED_MAIN_COLUMNS, LED_MAIN_HEIGHT
 
 
 class Plasma:
     """
-    TODO:
+    Priklad pouziti:
+
+        LED_MAIN.fill(BLACK)
+        LED_MAIN.show()
+
+        plasma = Plasma(1, 10, LED_MAIN)
+        while True:
+            if plasma.cycle():
+                break
+            LED_MAIN.show()
+            utime.sleep_ms(1)
+        del plasma
     """
 
-    def __init__(self, period, led_fn):
+    def __init__(self, period, cycles, strip, fadeout=None):
+        """
+        Parametry
+            period
+                Pocet ticku, ktere musi probehnout aby se delo neco dalsiho
+                (ticky se meni docela rychle a nekdy je potreba reagovat pomaleji).
+            cycles
+                Parametr cycles definuje pocet cyklu, po jejichz uplynuti
+                metoda .cycle() vrati True (tedy priznak, ze uz je hotovo).
+                Jeden cyklus je definovan jako LED_MAIN_COLUMNS*LED_MAIN_HEIGHT
+                zmen period (ono to je ale jedno, proste to je nejaka doba, stejne
+                je treba to dycky odzkouset)
+            strip
+                Instance NeopixelStrip (pres ni se LED ovladaji).
+            fadeout
+                Nepovinny priznak, s jehoz pomoci je mozne zapnout alternativni
+                mod plazmy. Typicky se pouziva v ramci .prepare_fadeout metody
+                kdy se plazme rekne at se zacne ztmavovat az do uplneho vypnuti.
+                Hodnota je ve stejnych jednotkach jako cycles.
+
+        Poznamka: pote co efekt skonci, je treba na prouzku nastavit zpet
+        puvodni hodnotu brightness, docasne ulozenou v self.brightness.
+        """
         self.period = period
+        self.cycles = cycles
+        self.fadeout = fadeout
+        if fadeout is not None:
+            self.prepare_fadeout(fadeout)
+        self.actual_cycle = 0
         self.tick = 0
         self.shift = 0
-        self.led_fn = led_fn
+        self.strip = strip
+        self.brightness = None
+        self.fadeout_delta = None
+
+    def prepare_fadeout(self, fadeout):
+        """
+        Prepne efekt to ztmavovaciho rezimu, ktery bude probihat `fadeout` cyklu.
+
+        Poznamka: narozdil od efektu Fadeout se tady pohasinani resi na urovni
+        LED prouzku, ve kterem pomalu menime parametr brightness na nulu.
+        """
+        self.fadeout = True
+        self.cycles = fadeout
+        self.actual_cycle = 0
+        self.brightness = self.strip.get_brightness()
+        self.fadeout_delta = self.brightness / (
+            fadeout * LED_MAIN_COLUMNS * LED_MAIN_HEIGHT
+        )
+        self.tick = 0
 
     def cycle(self):
+        if self.actual_cycle >= self.cycles:
+            return True
+
         self.tick += 1
         if self.tick < self.period:
             return False
 
-        for idx, item in enumerate(PATTERN):            
-            # color = PALLETTE[(item+int(round((128+128*math.sin(2*3.14*self.shift/300))))) % 256]
-            color = PALLETTE[(item+self.shift) % 256]
-            self.led_fn(idx, color)
+        # nastavi barvy na "zarovce" podle predem vypocitaneho patternu, barev
+        # a aktualni hodnoty posunu po barvach `shift` (tohle dela animaci)
+        for idx, item in enumerate(PATTERN):
+            color = PALLETTE[(item + self.shift) % 256]
+            self.strip.set(idx, color)
+
+        # fadeout rezim
+        if self.fadeout is not None:
+            if self.brightness <= 0:
+                self.brightness = 0
+            else:
+                self.brightness -= self.fadeout_delta
+            self.strip.set_brightness(self.brightness)
 
         self.shift += 1
+        if (self.shift % (LED_MAIN_COLUMNS * LED_MAIN_HEIGHT)) == 0:
+            self.actual_cycle += 1
         self.tick = 0
-        
+
         return False
 
     def debug(self):
-        print('tick: %s' % self.tick)
-        print('shift: %s' % self.tick)
+        print("period: {}".format(self.period))
+        print("cycles: {}".format(self.cycles))
+        print("fadeout: {}".format(self.fadeout))
+        print("actual_cycle: {}".format(self.actual_cycle))
+        print("tick: {}".format(self.tick))
+        print("shift: {}".format(self.shift))
+        print("brightness: {}".format(self.brightness))
+        print("fadeout_delta: {}".format(self.fadeout_delta))
+
+
+def get_plasma_value(x, y, w, h):
+    """
+    Pomocna fce pro vypocet plasma patternu.
+
+    Proste bordel nekolika goniometrickych funkci do sebe, ktere ve vysledku
+    vygeneruji neco co vypada nahodne, ale zaroven je to dostatecne spojite,
+    takze barevne zmeny vypadaji hladce.
+    """
+    v = (
+        128
+        + (127 * math.sin(2 * 3.14 * x / 16))
+        + 128
+        + (127 * math.sin(8 * 3.14 * y / 7))
+        + 128
+        + (127 * math.sin(math.sqrt(x * x + y * y)))
+    )
+
+    return int(round(v / 3))
+
+
+def generate_pattern():
+    """
+    Vygeneruje plasma pattern na plochu LED_MAIN_COLUMNS x LED_MAIN_HEIGHT.
+
+    Jednotlive hodnoty jsou cisla v rozsahu 0-255. Predstav si to jako moare
+    nekolika kruhu do sebe v odstinech sedi.
+
+    Pattern je predem vypocitany a v prubehu animace se nemeni. Plasma animace se
+    pak provadi trikem -- namisto narocne zmeny patternu dochazi k pomalemu posunu
+    po predem vypocitane tabulce s barvama (hodnoty v patternu udavaji pozici
+    v color tabulce, a ta se pomalinku meni).
+    """
+    out = []
+    for x in range(LED_MAIN_COLUMNS):
+        for y in range(LED_MAIN_HEIGHT):
+            v = int(round(get_plasma_value(x, y, LED_MAIN_HEIGHT, LED_MAIN_COLUMNS)))
+            out.append(v)
+    return out
+
+
+def generate_pallette():
+    """
+    Vygeneruje seznam 256 barev, ktere budou "putovat" po plasma patternu.
+
+    Zadna veda, pouzivame HSV model, s maximalne vysaturovanyma barvama,
+    cele dostupne spektrum.
+    """
+    out = []
+    for i in range(256):
+        h = 65535 * i / 256
+        out.append(hsv_to_rgb(h, 255, 255))
+    return out
+
+
+# predem vypocitane struktury, podle kterych se generuje plasma animace
+PALLETTE = generate_pallette()
+PATTERN = generate_pattern()

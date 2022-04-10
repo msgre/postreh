@@ -7,7 +7,7 @@ BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
-ORANGE = (255, 120, 18)
+ORANGE = (255, 90, 5)
 BLUE = (0, 0, 255)
 
 
@@ -44,7 +44,7 @@ def hsv_to_rgb(hue, sat, val):
         hue = 65536/360 * uhel
         sat = 255/100 * sat
         hue = 255/100 * hue
-    
+
     Reimplementace funkcionality z https://github.com/adafruit/Adafruit_NeoPixel/blob/master/Adafruit_NeoPixel.cpp
     """
     hue = int(round(hue))
